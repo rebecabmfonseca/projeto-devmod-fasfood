@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ProjetoDevMobGrupo2</string>
+    <string name="txtUsuario">Usuário:</string>
+    <string name="txtSenha">Senha:</string>
+    <string name="txtLogin">Área de acesso</string>
+    <string name="btnLogar">Logar</string>
+
+</resources>
