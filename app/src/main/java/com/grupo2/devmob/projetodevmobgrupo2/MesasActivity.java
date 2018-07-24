@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MesasActivity extends AppCompatActivity {
 
-    private Button botao;
+    private Button botao, btnSair;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +18,7 @@ public class MesasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mesas);
 
         botao = findViewById(R.id.button);
+        btnSair = findViewById(R.id.btnSair);
 
         botao.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,5 +27,20 @@ public class MesasActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnSair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(MesasActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    //impede que o app volte para MainActivity quando o botão voltar é pressionado
+    public void onBackPressed() {
+        this.moveTaskToBack(true);
     }
 }

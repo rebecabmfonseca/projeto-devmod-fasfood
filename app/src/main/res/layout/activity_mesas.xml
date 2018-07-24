@@ -24,4 +24,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="273dp"
         android:text="Clique e vá para o cardapio" />
+
+    <Button
+        android:id="@+id/btnSair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="200dp"
+        android:text="Log out" />
+
+
 </RelativeLayout>

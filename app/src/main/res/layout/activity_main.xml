@@ -23,7 +23,9 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="32dp"
         android:layout_marginTop="108dp"
-        android:text="@string/txtUsuario" />
+        android:text="@string/txtUsuario"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="32dp" />
 
     <TextView
         android:id="@+id/txtSenha"
@@ -32,7 +34,8 @@
         android:layout_alignEnd="@+id/txtUsuario"
         android:layout_alignParentTop="true"
         android:layout_marginTop="219dp"
-        android:text="@string/txtSenha" />
+        android:text="@string/txtSenha"
+        android:layout_alignRight="@+id/txtUsuario" />
 
     <EditText
         android:id="@+id/edtUsuario"
@@ -43,7 +46,9 @@
         android:layout_marginEnd="70dp"
         android:layout_marginTop="94dp"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textEmailAddress"
+        android:layout_marginRight="70dp"
+        android:layout_alignParentRight="true" />
 
     <EditText
         android:id="@+id/edtSenha"
@@ -53,7 +58,8 @@
         android:layout_alignStart="@+id/edtUsuario"
         android:layout_marginTop="199dp"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:layout_alignLeft="@+id/edtUsuario" />
 
     <Button
         android:id="@+id/btnLogar"

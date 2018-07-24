@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "417017985901",
+    "firebase_url": "https://projeto-devmod-fasfood.firebaseio.com",
+    "project_id": "projeto-devmod-fasfood",
+    "storage_bucket": "projeto-devmod-fasfood.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417017985901:android:c9cbefd890eef669",
+        "android_client_info": {
+          "package_name": "com.grupo2.devmob.projetodevmobgrupo2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417017985901-ighpfmnlmqrv60gsc0ns9emsmt4jl05d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBau77VqrbIkdSu6ivXehOc-vvkUCMVQbI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
