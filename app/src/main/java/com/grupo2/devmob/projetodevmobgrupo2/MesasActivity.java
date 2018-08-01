@@ -10,23 +10,14 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MesasActivity extends AppCompatActivity {
 
-    private Button botao, btnSair;
+    private Button  btnSair;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mesas);
 
-        botao = findViewById(R.id.button);
         btnSair = findViewById(R.id.btnSair);
-
-        botao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MesasActivity.this,CardapioActivity.class);
-                startActivity(intent);
-            }
-        });
 
         btnSair.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +25,12 @@ public class MesasActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(MesasActivity.this,MainActivity.class);
                 startActivity(intent);
+            }
+        });
+        findViewById(R.id.mesa1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MesasActivity.this,SelectCardapio.class));
             }
         });
     }

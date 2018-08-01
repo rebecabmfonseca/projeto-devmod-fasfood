@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/Salgados"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Salgados" />
+
+    <item
+        android:id="@+id/doces"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="Sobremesas" />
+
+    <item
+        android:id="@+id/bebidas"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="Bebidas" />
+    <item
+        android:id="@+id/comanda"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="comanda" />
+
+</menu>

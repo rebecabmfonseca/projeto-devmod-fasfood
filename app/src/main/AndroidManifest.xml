@@ -18,7 +18,10 @@
         </activity>
         <activity android:name=".MesasActivity" />
         <activity android:name=".CardapioActivity" />
-        <activity android:name=".PedidoActivity"></activity>
+        <activity android:name=".PedidoActivity" />
+        <activity
+            android:name=".SelectCardapio"
+            android:label="@string/title_activity_select_cardapio"></activity>
     </application>
 
 </manifest>

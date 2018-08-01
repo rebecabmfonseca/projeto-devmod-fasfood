@@ -1,38 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MesasActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="410dp">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="118dp"
-        android:text="Aqui deixamos as mesas" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="Aqui deixamos as mesas" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="273dp"
-        android:text="Clique e vá para o cardapio" />
+        <ImageView
+            android:id="@+id/mesa3"
+            android:layout_width="79dp"
+            android:layout_height="79dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="206dp"
+            android:layout_toStartOf="@+id/textView"
+            app:srcCompat="@android:color/holo_green_light" />
 
-    <Button
-        android:id="@+id/btnSair"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="200dp"
-        android:text="Log out" />
+        <ImageView
+            android:id="@+id/mesa1"
+            android:layout_width="79dp"
+            android:layout_height="79dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="86dp"
+            android:layout_toStartOf="@+id/textView"
+            app:srcCompat="@android:color/holo_green_light" />
+
+        <ImageView
+            android:id="@+id/mesa2"
+            android:layout_width="79dp"
+            android:layout_height="79dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/mesa1"
+            android:layout_marginEnd="56dp"
+            app:srcCompat="@android:color/holo_green_light" />
+
+        <ImageView
+            android:id="@+id/mesa4"
+            android:layout_width="79dp"
+            android:layout_height="79dp"
+            android:layout_alignLeft="@+id/mesa2"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/mesa2"
+            android:layout_marginTop="214dp"
+            app:srcCompat="@android:color/holo_green_light" />
+
+        <ImageView
+            android:id="@+id/mesa"
+            android:layout_width="79dp"
+            android:layout_height="79dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="188dp"
+            android:layout_toStartOf="@+id/textView"
+            app:srcCompat="@android:color/holo_green_light" />
+
+        <ImageView
+            android:id="@+id/mesa5"
+            android:layout_width="79dp"
+            android:layout_height="79dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/mesa2"
+            android:layout_marginBottom="169dp"
+            android:baselineAlignBottom="false"
+            android:longClickable="true"
+            app:srcCompat="@android:color/holo_green_light" />
+
+        <Button
+            android:id="@+id/btnSair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:text="Logout" />
+
+    </RelativeLayout>
 
 
-</RelativeLayout>
+
+
+</ScrollView>

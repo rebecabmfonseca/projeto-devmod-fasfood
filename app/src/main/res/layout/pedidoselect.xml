@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e1e1e1">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/Atributes"
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <ImageView
+                    android:id="@+id/bimage"
+                    android:layout_width="71dp"
+                    android:layout_height="71dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="11dp" />
+
+                <TextView
+                    android:id="@+id/bname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignTop="@+id/bimage"
+                    android:layout_marginStart="100dp"
+                    android:text="Hamburguer delicidoso"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/bdesc"
+                    android:layout_width="227dp"
+                    android:layout_height="42dp"
+                    android:layout_alignBottom="@+id/bimage"
+                    android:layout_alignStart="@+id/bname"
+                    android:layout_marginBottom="-7dp"
+                    android:text="TextView"
+                    android:textSize="11sp"
+                    tools:text="Hamburguer com 40 carnes tudo delicioso e marabilhoso compre " />
+
+                <TextView
+                    android:id="@+id/bprice"
+                    android:layout_width="71dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/bname"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="end"
+                    android:text="TextView"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/holo_green_light"
+                    tools:text="R$ 40,00" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
