@@ -27,12 +27,17 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.michaelmuenzer.android.scrollablennumberpicker.ScrollableNumberPicker;
+import com.michaelmuenzer.android.scrollablennumberpicker.ScrollableNumberPickerListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class SelectCardapio extends AppCompatActivity {
 
     ListView list ;
+    int ItemTIPO=0;
+    Bundle mybundle;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -42,22 +47,37 @@ public class SelectCardapio extends AppCompatActivity {
                 case R.id.comanda:
                     return true;
                 case R.id.Salgados:
+                    ItemTIPO=0;
+                    showAlimentos();
                     return true;
                 case R.id.doces:
+                    ItemTIPO=1;
+                    showAlimentos();
                     return true;
                 case R.id.bebidas:
+                    ItemTIPO=2;
+                    showAlimentos();
                     return true;
             }
             return false;
         }
     };
 
+    public ArrayList<Integer> attributesvalue= new ArrayList<>();
+    float InitialValue, finalvalue;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_cardapio);
 
+        mybundle= savedInstanceState;
+        setContentView(R.layout.activity_select_cardapio);
+        showAlimentos();
+
+    }
+    void showAlimentos()
+    {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -65,25 +85,91 @@ public class SelectCardapio extends AppCompatActivity {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         list= findViewById(R.id.mylist);
         ArrayList<Lanche>lanches= new ArrayList<>();
-        lanches.add(new Lanche("lanche","lanhd",0,R.drawable.ic_home_black_24dp));
-        lanches.add(new Lanche("lanche","lanhd",0,R.drawable.ic_home_black_24dp));
-        lanches.add(new Lanche("lanche","lanhd",0,R.drawable.ic_home_black_24dp));
-        lanches.add(new Lanche("lanche","lanhd",0,R.drawable.ic_home_black_24dp));
+        if(ItemTIPO==0) {
+            lanches.add(new Lanche("lanche", "lanhd", 5.40f, R.drawable.ic_home_black_24dp));
+            lanches.add(new Lanche("lanche", "lanhd", 10.20f, R.drawable.ic_home_black_24dp));
+            lanches.add(new Lanche("lanche", "lanhd", 30.40f, R.drawable.ic_home_black_24dp));
+            lanches.add(new Lanche("lanche", "lanhd", 10.4f, R.drawable.ic_home_black_24dp));
+        }
+        else if (ItemTIPO==1)
+        {
+            lanches.add(new Lanche("doce", "açucar", 5.40f, R.drawable.ic_home_black_24dp));
+            lanches.add(new Lanche("doce", "açucar", 10.20f, R.drawable.ic_home_black_24dp));
+            lanches.add(new Lanche("doce", "açucar", 30.40f, R.drawable.ic_home_black_24dp));
+            lanches.add(new Lanche("doce", "açucar", 10.4f, R.drawable.ic_home_black_24dp));
+        }
+        else {
+            lanches.add(new Lanche("bebida", "açucar", 5.40f, R.drawable.ic_home_black_24dp));
+            lanches.add(new Lanche("bebida", "açucar", 10.20f, R.drawable.ic_home_black_24dp));
+            lanches.add(new Lanche("bebida", "açucar", 30.40f, R.drawable.ic_home_black_24dp));
+            lanches.add(new Lanche("bebida", "açucar", 10.4f, R.drawable.ic_home_black_24dp));
+        }
         list.setAdapter(new CreateList(this,lanches));
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 LayoutInflater layoutInflater = (LayoutInflater) SelectCardapio.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View layout = layoutInflater.inflate(R.layout.pedidoselect, null);
+                final View layout = layoutInflater.inflate(R.layout.pedidoselect, null);
                 RelativeLayout propiets =layout.findViewById(R.id.Atributes);
                 ((TextView)layout.findViewById(R.id.bname)).setText(((TextView)view.findViewById(R.id.bname)).getText().toString());
                 ((TextView)layout.findViewById(R.id.bdesc)).setText(((TextView)view.findViewById(R.id.bdesc)).getText().toString());
                 ((TextView)layout.findViewById(R.id.bprice)).setText(((TextView)view.findViewById(R.id.bprice)).getText().toString());
-                View lay2= layoutInflater.inflate(R.layout.salgados,null);
-                ((LinearLayout)layout.findViewById(R.id.linearLayout)).addView(lay2);
-               // Bitmap bitmap = ((BitmapDrawable)((ImageView)view.findViewById(R.id.bimage)).getDrawable()).getBitmap();
+                ((ImageView)layout.findViewById(R.id.bimage)).setImageResource(Integer.valueOf( view.findViewById(R.id.bimage).getContentDescription().toString()));
+                ArrayList<Atributes> complements = new ArrayList<>();
+                if(ItemTIPO==0) {
+                    complements.add(new Atributes(" Carnes(s)", 3.00f, 1));
+                    complements.add(new Atributes(" Queijos(s)", 1.00f, 1));
+                    complements.add(new Atributes(" Bacon", 1.50f, 1));
+                    complements.add(new Atributes(" Alface(s)", 0.50f, 1));
+                    complements.add(new Atributes(" Tomate(s)", 0.40f, 1));
+                    complements.add(new Atributes(" Maionese(s)", 0.50f, 1));
+                }
+                else if (ItemTIPO==1)
+                {
+                    complements.add(new Atributes(" Granulado", 0.10f, 1));
+                    complements.add(new Atributes(" Amendoin", 0.50f, 1));
+                    complements.add(new Atributes(" Calda Chocolate", 0.10f, 1));
+                    complements.add(new Atributes(" Calda Morango", 0.10f, 1));
 
-               // ((ImageView)findViewById(R.id.bimage)).setImageBitmap(bitmap);
+                }
+                else {
+                    complements.add(new Atributes(" Gelo", 0.00f, 1));
+                    complements.add(new Atributes(" Limão", 0.00f, 0));
+                }
+                InitialValue= Float.valueOf( view.findViewById(R.id.bprice).getContentDescription().toString());
+                finalvalue= InitialValue;
+                ((TextView)layout.findViewById(R.id.finalvalue)).setText(String.format("O Valor total é de R$ %.2f",finalvalue));
+
+                final LinearLayout atrilay= (LinearLayout)layout.findViewById(R.id.atrilayout);
+
+                for (int z=0;z<complements.size();z++)attributesvalue.add(complements.get(i).inicialqnt);
+                for (int z=0;z<complements.size();z++) {
+                    final Atributes at = complements.get(z);
+                    View t = layoutInflater.inflate(R.layout.salgados,atrilay,false);
+                    t.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,(int)( 50*SelectCardapio.this.getResources().getDisplayMetrics().density + 0.5f)));
+                    ((TextView)t.findViewById(R.id.tipo)).setText(at.Desc);
+                    ((TextView)t.findViewById(R.id.preco)).setText(String.valueOf(String.format("R$ %.2f ", at.price)));
+                    t.findViewById(R.id.preco).setContentDescription(String.valueOf(String.valueOf( at.price)));
+                    ((ScrollableNumberPicker)t.findViewById(R.id.quant)).setValue(at.inicialqnt);
+                    final int finalZ = z;
+                    ((ScrollableNumberPicker)t.findViewById(R.id.quant)).setListener(new ScrollableNumberPickerListener() {
+                        @Override
+                        public void onNumberPicked(int value) {
+                            attributesvalue.set(finalZ,value);
+                            finalvalue= InitialValue;
+                            for (int y=0;y<attributesvalue.size();y++)
+                            {
+                                if (attributesvalue.get(y)>1)
+                                    finalvalue+=(attributesvalue.get(y)-1)*at.price;
+                            }
+                            ((TextView)layout.findViewById(R.id.finalvalue)).setText(String.format("O Valor total é de R$ %.2f",finalvalue));
+                        }
+                    });
+
+
+                    atrilay.addView(t);
+                }
+
 
                 PopupWindow changeSortPopUp = new PopupWindow(SelectCardapio.this);
                 changeSortPopUp.setContentView(layout);
@@ -100,11 +186,11 @@ public class SelectCardapio extends AppCompatActivity {
                 changeSortPopUp.showAtLocation(layout, Gravity.TOP, 0, 0);
             }
         });
-
-
     }
 
+
 }
+
 class CreateList extends ArrayAdapter<Lanche> {
 
     private Context mContext;
@@ -126,7 +212,11 @@ class CreateList extends ArrayAdapter<Lanche> {
         ((TextView)listItem.findViewById(R.id.bname)).setText(l.name);
         ((TextView)listItem.findViewById(R.id.bdesc)).setText(l.desc);
         ((TextView)listItem.findViewById(R.id.bprice)).setText(String.format("R$ %.2f ", l.price));
+        ((TextView)listItem.findViewById(R.id.bprice)).setContentDescription(String.valueOf( l.price));
+
         ((ImageView)listItem.findViewById(R.id.bimage)).setImageResource(l.imageID);
+        ((ImageView)listItem.findViewById(R.id.bimage)).setContentDescription(String.valueOf(l.imageID));
+
         return listItem;
     }
 }
@@ -140,5 +230,17 @@ class Lanche{
         desc=d;
         imageID= imgId;
         price=p;
+    }
+}
+class Atributes{
+    String Desc;
+    float price;
+    int inicialqnt;
+    public Atributes(String d,float p,int ini)
+    {
+        Desc=d;
+        price=p;
+        inicialqnt=ini;
+
     }
 }
