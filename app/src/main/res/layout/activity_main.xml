@@ -4,70 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/CorFundo"
     tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/txtLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="@string/txtLogin" />
-
-    <TextView
-        android:id="@+id/txtUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="108dp"
-        android:text="@string/txtUsuario"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="32dp" />
-
-    <TextView
-        android:id="@+id/txtSenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/txtUsuario"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="219dp"
-        android:text="@string/txtSenha"
-        android:layout_alignRight="@+id/txtUsuario" />
 
     <EditText
         android:id="@+id/edtUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="70dp"
-        android:layout_marginTop="94dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="139dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:layout_marginRight="70dp"
-        android:layout_alignParentRight="true" />
+        android:hint="E-mail"
+        android:textColorHint="#DCDCDC"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
     <EditText
         android:id="@+id/edtSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/edtUsuario"
-        android:layout_marginTop="199dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:layout_alignLeft="@+id/edtUsuario" />
-
-    <Button
-        android:id="@+id/btnLogar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="192dp"
-        android:text="@string/btnLogar" />
+        android:layout_marginBottom="84dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Senha"
+        android:textColorHint="#DCDCDC"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="429dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/imglogo" />
+
+    <ImageView
+        android:id="@+id/imgIr"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_below="@+id/edtSenha"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-84dp"
+        app:srcCompat="@drawable/btnlogin" />
 
 </RelativeLayout>

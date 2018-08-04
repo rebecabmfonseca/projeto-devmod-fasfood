@@ -4,85 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/CorFundo"
     tools:context=".MesasActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="410dp">
+        android:layout_height="500dp">
 
-        <TextView
-            android:id="@+id/textView"
+        <ImageView
+            android:id="@+id/mesa1"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="189dp"
+            app:srcCompat="@drawable/mesa2" />
+
+        <ImageView
+            android:id="@+id/imgMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
-            android:text="Aqui deixamos as mesas" />
+            app:srcCompat="@drawable/mesas" />
 
         <ImageView
-            android:id="@+id/mesa3"
-            android:layout_width="79dp"
-            android:layout_height="79dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="206dp"
-            android:layout_toStartOf="@+id/textView"
-            app:srcCompat="@android:color/holo_green_light" />
-
-        <ImageView
-            android:id="@+id/mesa1"
-            android:layout_width="79dp"
-            android:layout_height="79dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="86dp"
-            android:layout_toStartOf="@+id/textView"
-            app:srcCompat="@android:color/holo_green_light" />
-
-        <ImageView
-            android:id="@+id/mesa2"
-            android:layout_width="79dp"
-            android:layout_height="79dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/mesa1"
-            android:layout_marginEnd="56dp"
-            app:srcCompat="@android:color/holo_green_light" />
-
-        <ImageView
-            android:id="@+id/mesa4"
-            android:layout_width="79dp"
-            android:layout_height="79dp"
-            android:layout_alignLeft="@+id/mesa2"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/mesa2"
-            android:layout_marginTop="214dp"
-            app:srcCompat="@android:color/holo_green_light" />
-
-        <ImageView
-            android:id="@+id/mesa"
-            android:layout_width="79dp"
-            android:layout_height="79dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="188dp"
-            android:layout_toStartOf="@+id/textView"
-            app:srcCompat="@android:color/holo_green_light" />
-
-        <ImageView
-            android:id="@+id/mesa5"
-            android:layout_width="79dp"
-            android:layout_height="79dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/mesa2"
-            android:layout_marginBottom="169dp"
-            android:baselineAlignBottom="false"
-            android:longClickable="true"
-            app:srcCompat="@android:color/holo_green_light" />
-
-        <Button
-            android:id="@+id/btnSair"
+            android:id="@+id/imgLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:text="Logout" />
+            android:layout_marginEnd="14dp"
+            android:layout_marginTop="47dp"
+            app:srcCompat="@drawable/btnlogout" />
+
+        <ImageView
+            android:id="@+id/mesa2"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/mesa1"
+            android:layout_marginEnd="54dp"
+            app:srcCompat="@drawable/mesa" />
+
+        <ImageView
+            android:id="@+id/mesa3"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/mesa1"
+            android:layout_marginBottom="31dp"
+            app:srcCompat="@drawable/mesa" />
+
+        <ImageView
+            android:id="@+id/mesa4"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/mesa2"
+            android:layout_marginBottom="25dp"
+            app:srcCompat="@drawable/mesa" />
 
     </RelativeLayout>
 

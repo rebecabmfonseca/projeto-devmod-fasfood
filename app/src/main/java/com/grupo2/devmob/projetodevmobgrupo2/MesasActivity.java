@@ -5,21 +5,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MesasActivity extends AppCompatActivity {
 
-    private Button  btnSair;
+
+    private ImageView imgLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mesas);
 
-        btnSair = findViewById(R.id.btnSair);
 
-        btnSair.setOnClickListener(new View.OnClickListener() {
+        imgLogout = findViewById(R.id.imgLogout);
+
+        imgLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
@@ -27,6 +30,8 @@ public class MesasActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
         findViewById(R.id.mesa1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,9 +20,10 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     private EditText edtUsuario, edtSenha;
-    private Button btnLogar;
+
     private String usuario, senha;
     private FirebaseAuth mAuth;
+    private ImageView imgIr;
     public static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
@@ -34,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
         edtUsuario = findViewById(R.id.edtUsuario);
         edtSenha = findViewById(R.id.edtSenha);
-        btnLogar = findViewById(R.id.btnLogar);
+
+        imgIr = findViewById(R.id.imgIr);
 
         //checa se usuário já está logado
         if (usuarioAtual != null) {
@@ -44,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        btnLogar.setOnClickListener(new View.OnClickListener() {
+        imgIr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 usuario = edtUsuario.getText().toString().trim();
@@ -52,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 realizaLogin(usuario, senha);
             }
         });
+
+
     }
 
     @Override
