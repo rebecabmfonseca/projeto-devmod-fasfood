@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -26,6 +27,7 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.michaelmuenzer.android.scrollablennumberpicker.ScrollableNumberPicker;
 import com.michaelmuenzer.android.scrollablennumberpicker.ScrollableNumberPickerListener;
@@ -86,23 +88,23 @@ public class SelectCardapio extends AppCompatActivity {
         list= findViewById(R.id.mylist);
         ArrayList<Lanche>lanches= new ArrayList<>();
         if(ItemTIPO==0) {
-            lanches.add(new Lanche("lanche", "lanhd", 5.40f, R.drawable.ic_home_black_24dp));
-            lanches.add(new Lanche("lanche", "lanhd", 10.20f, R.drawable.ic_home_black_24dp));
-            lanches.add(new Lanche("lanche", "lanhd", 30.40f, R.drawable.ic_home_black_24dp));
-            lanches.add(new Lanche("lanche", "lanhd", 10.4f, R.drawable.ic_home_black_24dp));
+            lanches.add(new Lanche("X-Tudo", "Hamburguer completo", 5.50f, R.drawable.hamburguer1));
+            lanches.add(new Lanche("Cachorro-quente", "Cachorro quente completo", 6.00f, R.drawable.hotdog));
+            lanches.add(new Lanche("Misto Quente", "Misto quente de queijo com presunto", 4.00f, R.drawable.mistoquente));
+            lanches.add(new Lanche("Pizza", "Pedaço de pizza de calabresa", 4.50f, R.drawable.pizza));
         }
         else if (ItemTIPO==1)
         {
-            lanches.add(new Lanche("doce", "açucar", 5.40f, R.drawable.ic_home_black_24dp));
-            lanches.add(new Lanche("doce", "açucar", 10.20f, R.drawable.ic_home_black_24dp));
-            lanches.add(new Lanche("doce", "açucar", 30.40f, R.drawable.ic_home_black_24dp));
-            lanches.add(new Lanche("doce", "açucar", 10.4f, R.drawable.ic_home_black_24dp));
+            lanches.add(new Lanche("Pudim", "Pudim de leite condensado", 3.50f, R.drawable.pudim));
+            lanches.add(new Lanche("Sorvete", "Casquinha de baunilha", 2.50f, R.drawable.sorvete));
+            lanches.add(new Lanche("Bolinho", "Bolinho de bunilha com gotas de chocolate", 3.00f, R.drawable.bolinho));
+            lanches.add(new Lanche("Torta", "Torta de morango com chocolate", 5.50f, R.drawable.torta));
         }
         else {
-            lanches.add(new Lanche("bebida", "açucar", 5.40f, R.drawable.ic_home_black_24dp));
-            lanches.add(new Lanche("bebida", "açucar", 10.20f, R.drawable.ic_home_black_24dp));
-            lanches.add(new Lanche("bebida", "açucar", 30.40f, R.drawable.ic_home_black_24dp));
-            lanches.add(new Lanche("bebida", "açucar", 10.4f, R.drawable.ic_home_black_24dp));
+            lanches.add(new Lanche("Água", "Garrafa com 500ml", 2.00f, R.drawable.agua));
+            lanches.add(new Lanche("Suco", "Suco de laranja", 4.50f, R.drawable.suco));
+            lanches.add(new Lanche("Refrigerante", "Pepsi", 5.50f, R.drawable.refri));
+            lanches.add(new Lanche("Café", "Xícara de café", 3.00f, R.drawable.cafe));
         }
         list.setAdapter(new CreateList(this,lanches));
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -127,7 +129,7 @@ public class SelectCardapio extends AppCompatActivity {
                 else if (ItemTIPO==1)
                 {
                     complements.add(new Atributes(" Granulado", 0.10f, 1));
-                    complements.add(new Atributes(" Amendoin", 0.50f, 1));
+                    complements.add(new Atributes(" Amendoim", 0.50f, 1));
                     complements.add(new Atributes(" Calda Chocolate", 0.10f, 1));
                     complements.add(new Atributes(" Calda Morango", 0.10f, 1));
 
@@ -141,6 +143,7 @@ public class SelectCardapio extends AppCompatActivity {
                 ((TextView)layout.findViewById(R.id.finalvalue)).setText(String.format("O Valor total é de R$ %.2f",finalvalue));
 
                 final LinearLayout atrilay= (LinearLayout)layout.findViewById(R.id.atrilayout);
+                Button btn = layout.findViewById(R.id.confirm);
 
                 for (int z=0;z<complements.size();z++)attributesvalue.add(complements.get(i).inicialqnt);
                 for (int z=0;z<complements.size();z++) {
@@ -166,10 +169,8 @@ public class SelectCardapio extends AppCompatActivity {
                         }
                     });
 
-
                     atrilay.addView(t);
                 }
-
 
                 PopupWindow changeSortPopUp = new PopupWindow(SelectCardapio.this);
                 changeSortPopUp.setContentView(layout);
@@ -177,6 +178,14 @@ public class SelectCardapio extends AppCompatActivity {
                 changeSortPopUp.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
                 changeSortPopUp.setFocusable(true);
 
+
+                btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //pega os dados quando clica em Confirmar
+
+                    }
+                });
 
 
                 // Clear the default translucent background

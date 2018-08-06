@@ -21,7 +21,8 @@
         <activity android:name=".PedidoActivity" />
         <activity
             android:name=".SelectCardapio"
-            android:label="@string/title_activity_select_cardapio"></activity>
+            android:label="@string/title_activity_select_cardapio" />
+        <activity android:name=".PedidosSelect"></activity>
     </application>
 
 </manifest>
