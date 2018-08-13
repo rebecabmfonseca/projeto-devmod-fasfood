@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="CorFundo">#2d303a</color>
+    <color name="inative">#797676</color>
+    <color name="ativa">#67a14c</color>
+
 </resources>

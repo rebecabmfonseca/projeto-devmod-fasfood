@@ -19,7 +19,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="55dp"
             android:layout_marginTop="189dp"
-            app:srcCompat="@drawable/mesa2" />
+            app:srcCompat="@drawable/mesa" />
 
         <ImageView
             android:id="@+id/imgMenu"
