@@ -64,13 +64,23 @@ public class MesasActivity extends AppCompatActivity {
             }
         });
 
-
+        conectaMesas();
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        conectaMesas();
+    }
+
+    @Override
+    //impede que o app volte para MainActivity quando o botão voltar é pressionado
+    public void onBackPressed() {
+        this.moveTaskToBack(true);
+    }
+
+    public void conectaMesas(){
         FirebaseFirestore mDatabase;
         mDatabase= FirebaseFirestore.getInstance();
         mDatabase.collection("dados").document("mesas").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -82,7 +92,7 @@ public class MesasActivity extends AppCompatActivity {
                     String[] mesas = new String[]{"mesa1","mesa2","mesa3","mesa4"};
                     for(int i=1;i<=mesas.length;i++){
                         String MesaValue=(String)snapshot.getData().get("mesa"+i);
-                        Log.d("kkkk", "onComplete: "+MesaValue);
+                        //Log.d("kkkk", "onComplete: "+MesaValue);
                         if(MesaValue.equals("[]")||MesaValue.equals(null)||MesaValue.equals(""))
                         {
                             ((ImageView)findViewById(MesasImages[i-1])).setImageResource(R.drawable.mesa);
@@ -100,10 +110,5 @@ public class MesasActivity extends AppCompatActivity {
             }
         });
     }
-
-    @Override
-    //impede que o app volte para MainActivity quando o botão voltar é pressionado
-    public void onBackPressed() {
-        this.moveTaskToBack(true);
-    }
 }
+

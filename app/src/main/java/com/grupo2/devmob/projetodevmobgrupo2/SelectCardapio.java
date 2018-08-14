@@ -192,7 +192,7 @@ public class SelectCardapio extends AppCompatActivity {
         list= findViewById(R.id.mylist);
         ArrayList<Lanche>lanches= new ArrayList<>();
         if(ItemTIPO==0) {
-            lanches.add(new Lanche("X-Tudo", "Hamburguer completo", 5.50f, R.drawable.hamburguer1));
+            lanches.add(new Lanche("X-Tudo", "Hamburguer completo", 5.50f, R.drawable.hamburguer));
             lanches.add(new Lanche("Cachorro-quente", "Cachorro quente completo", 6.00f, R.drawable.hotdog));
             lanches.add(new Lanche("Misto Quente", "Misto quente de queijo com presunto", 4.00f, R.drawable.mistoquente));
             lanches.add(new Lanche("Pizza", "Pedaço de pizza de calabresa", 4.50f, R.drawable.pizza));
